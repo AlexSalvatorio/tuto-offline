@@ -6,7 +6,7 @@ import Info from './components/Info';
 function App() {
   return (
     <div className="App">
-      <h1>Offline Fire🔥</h1>
+      <h1>🔥 Offline Fire</h1>
       <Info></Info>
       <Posting></Posting>
       <Forum></Forum>
