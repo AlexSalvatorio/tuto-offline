@@ -1,7 +1,10 @@
 import { firebase } from '@firebase/app'
 import {firestore} from 'firebase/firestore'
 
-const settings = {timestampsInSnapshots: true};
+const settings = {
+    timestampsInSnapshots: true,
+    cacheSizeBytes: firebase.firestore.CACHE_SIZE_UNLIMITED,
+};
 
 const config = {
     apiKey: "AIzaSyBZYfKcY5Coy20Vk2Cjg-kzFMzEheov_iU",
@@ -14,5 +17,6 @@ const config = {
 };
 firebase.initializeApp(config);
 firebase.firestore().settings(settings);
+firebase.firestore().enablePersistence();
 
 export default firebase;

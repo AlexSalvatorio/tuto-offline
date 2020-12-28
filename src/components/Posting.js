@@ -7,17 +7,15 @@ function Posting (props) {
     const [isLoading, setLoading] = useState(false);
 
     const onPost = (e) => {
-        setLoading(true);
         const ref = firebase.firestore().collection('board');
-        ref.add(post).then( res =>{
-            setLoading(false);
-            console.log(res);
-            setPost({text:"", url:""});
+        ref.add({...post, date: Date.now()}).then( res =>{
+            console.warn("posted",{res});
+           
         }).catch( err =>{
-            setLoading(false);
-            console.log(err);
-            setPost({text:"", url:""});
-        })
+            console.warn("Cannot post",{err});
+        });
+
+        setPost({text:"", url:""});
     }
 
     const onChangePost = (e) => {
